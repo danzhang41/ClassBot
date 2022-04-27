@@ -1,11 +1,16 @@
-class MessageParser {
+import {nlp} from './Api.js';
+
+
+class MessageParser{
   constructor(actionProvider, state) {
     this.actionProvider = actionProvider;
     this.state = state;
   }
+  
 
   parse(message) {
     message = message.toLowerCase()
+    console.log(nlp("asf"))
 
     if (message.includes("hello")){
       this.actionProvider.handleGreet();
@@ -19,6 +24,7 @@ class MessageParser {
     else {
       this.actionProvider.handleUnknownMessage();
     }
+
   }
 }
 
